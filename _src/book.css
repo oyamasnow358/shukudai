@@ -1,0 +1,77 @@
+/* ===== A4 しゅくだい ページ（印刷・プレビュー・HTML保存 共通） ===== */
+.bk-page{width:210mm;height:297mm;padding:11mm 12mm 10mm;box-sizing:border-box;background:#fff;color:#111;position:relative;overflow:hidden;display:flex;flex-direction:column;font-family:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN","BIZ UDPGothic",sans-serif;font-weight:700;-webkit-print-color-adjust:exact;print-color-adjust:exact;word-break:keep-all;}
+.bk-page *{box-sizing:border-box;}
+.bk-kyo{font-family:"Klee One","UD デジタル 教科書体 NK-R","UD Digital Kyokasho NK-R","Hiragino Maru Gothic ProN",sans-serif;font-weight:600;}
+.bk-emo{font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-weight:400;line-height:1;}
+.bk-hd{display:flex;align-items:center;gap:3mm;border-bottom:.8mm solid var(--ac,#1C7ED6);padding-bottom:2mm;margin-bottom:3mm;flex:none;}
+.bk-hd .ic{font-size:11mm;}
+.bk-hd .tt{flex:1;font-size:7.5mm;line-height:1.2;color:#222;}
+.bk-hd .tt small{display:block;font-size:3.6mm;color:#666;font-weight:500;}
+.bk-hd .nm{font-size:4.2mm;text-align:right;white-space:nowrap;}
+.bk-foot{position:absolute;left:12mm;right:12mm;bottom:4mm;display:flex;justify-content:space-between;font-size:2.8mm;color:#AAA;font-weight:500;}
+.bk-foot .pg{color:#888;}
+.bk-body{flex:1;min-height:0;display:flex;flex-direction:column;gap:3mm;}
+.bk-row{display:flex;gap:3mm;align-items:stretch;}
+.bk-box{border:.5mm solid #444;border-radius:3mm;position:relative;background:#fff;}
+.bk-box .lab{position:absolute;left:2.5mm;top:1.5mm;font-size:3.6mm;color:#555;font-weight:700;z-index:1;}
+.bk-draw{flex:1;min-height:30mm;display:flex;align-items:center;justify-content:center;color:#C9CED4;font-size:4.4mm;overflow:hidden;}
+.bk-draw img{width:100%;height:100%;object-fit:cover;border-radius:2.5mm;}
+.bk-draw.contain img{object-fit:contain;}
+.bk-field{display:inline-flex;align-items:flex-end;gap:1.5mm;font-size:5mm;}
+.bk-field .ln{display:inline-block;min-width:40mm;border-bottom:.4mm solid #333;height:7mm;}
+.bk-paren{display:inline-block;min-width:11mm;text-align:center;}
+.bk-trace{color:#B9BEC4;}
+.bk-date{font-size:5.6mm;}
+.bk-weather{display:inline-flex;gap:2.5mm;align-items:center;font-size:4.2mm;}
+.bk-weather .w{display:inline-flex;flex-direction:column;align-items:center;font-size:8mm;}
+.bk-weather .w small{font-size:2.8mm;color:#666;font-family:"M PLUS Rounded 1c",sans-serif;font-weight:500;}
+.bk-chk{display:flex;flex-wrap:wrap;gap:2mm 5mm;font-size:4.6mm;}
+.bk-chk span{display:inline-flex;align-items:center;gap:1.5mm;}
+.bk-chk i{display:inline-block;width:6mm;height:6mm;border:.45mm solid #333;border-radius:50%;}
+.bk-masu{display:grid;justify-content:center;align-content:start;}
+.bk-masu .c{border:.3mm solid #7D8590;margin:-.15mm 0 0 -.15mm;position:relative;display:grid;place-items:center;
+  background-image:linear-gradient(#E9ECEF,#E9ECEF),linear-gradient(#E9ECEF,#E9ECEF);background-size:100% .2mm,.2mm 100%;background-position:center;background-repeat:no-repeat;}
+.bk-masu .c span{font-family:"Klee One","UD デジタル 教科書体 NK-R",sans-serif;font-weight:600;color:#B9BEC4;line-height:1;}
+.bk-masu .c span.dk{color:#222;}
+.bk-lines{position:relative;}
+.bk-lines .l{position:absolute;left:0;right:0;border-bottom:.35mm solid #8C939A;}
+.bk-lines .l.mid{border-bottom:.25mm dashed #CED4DA;}
+.bk-lines .tx{position:absolute;left:1mm;font-family:"Klee One","UD デジタル 教科書体 NK-R",sans-serif;font-weight:600;color:#B9BEC4;white-space:nowrap;}
+.bk-choose{display:flex;flex-wrap:wrap;gap:3mm 6mm;justify-content:center;align-items:center;padding:2mm;}
+.bk-choose .o{display:flex;flex-direction:column;align-items:center;font-size:10mm;}
+.bk-choose .o small{font-size:3.4mm;color:#444;font-family:"M PLUS Rounded 1c",sans-serif;font-weight:700;margin-top:1mm;}
+.bk-clock{display:inline-flex;flex-direction:column;align-items:center;gap:.8mm;font-size:3.8mm;}
+.bk-clock svg{width:22mm;height:22mm;}
+.bk-tbl{width:100%;border-collapse:collapse;font-size:4.2mm;table-layout:fixed;}
+.bk-tbl th,.bk-tbl td{border:.35mm solid #555;padding:1mm 1.2mm;text-align:center;vertical-align:middle;}
+.bk-tbl th{background:var(--acs,#E7F5FF);font-size:3.8mm;}
+.bk-tbl td.l{text-align:left;}
+.bk-tbl .st{display:inline-block;width:8mm;height:8mm;border:.4mm dashed #999;border-radius:50%;}
+.bk-tbl .sun{color:#E03131;} .bk-tbl .sat{color:#1C7ED6;}
+.bk-cal{display:grid;grid-template-columns:repeat(7,1fr);border-left:.35mm solid #555;border-top:.35mm solid #555;}
+.bk-cal div{border-right:.35mm solid #555;border-bottom:.35mm solid #555;position:relative;padding:1mm 1.2mm;min-height:0;overflow:hidden;}
+.bk-cal .h{background:var(--acs,#E7F5FF);text-align:center;font-size:3.8mm;padding:1mm;}
+.bk-cal .d{font-size:4.2mm;}
+.bk-cal .d .ev{display:block;font-size:2.9mm;color:#C2255C;line-height:1.15;margin-top:.5mm;font-weight:700;}
+.bk-cal .d .st{position:absolute;right:1.2mm;bottom:1.2mm;width:7mm;height:7mm;border:.35mm dashed #AAA;border-radius:50%;}
+.bk-cal .x{background:#F1F3F5;color:#CED4DA;}
+.bk-cal .sun{color:#E03131;} .bk-cal .sat{color:#1C7ED6;}
+.bk-cover{align-items:center;justify-content:space-between;text-align:center;border:2.5mm solid var(--ac,#1C7ED6);border-radius:8mm;padding:12mm 12mm 14mm;}
+.bk-cover .yr{font-size:6mm;color:var(--ac);}
+.bk-cover h1{font-size:15mm;line-height:1.25;margin:2mm 0 0;color:#222;}
+.bk-cover .ring{font-size:13mm;letter-spacing:3mm;}
+.bk-cover .ph{width:120mm;height:90mm;border:.8mm dashed #999;border-radius:5mm;display:grid;place-items:center;color:#AAA;font-size:5mm;overflow:hidden;}
+.bk-cover .ph img{width:100%;height:100%;object-fit:cover;}
+.bk-cover .info{display:grid;gap:4mm;font-size:6mm;width:150mm;text-align:left;}
+.bk-cover .info .r{display:flex;align-items:flex-end;gap:3mm;border-bottom:.5mm solid #333;padding-bottom:1mm;min-height:13mm;}
+.bk-cover .info .r b{font-size:4.6mm;color:#555;width:26mm;flex:none;}
+.bk-cert{align-items:center;justify-content:center;text-align:center;border:3mm double var(--ac,#E8590C);border-radius:6mm;padding:16mm;gap:7mm;}
+.bk-cert h1{font-size:16mm;letter-spacing:4mm;margin:0;color:var(--ac);}
+.bk-cert .who{font-size:11mm;border-bottom:.6mm solid #333;padding:0 10mm 2mm;min-width:110mm;}
+.bk-cert .msg{font-size:7.5mm;line-height:1.8;}
+.bk-cert .corner{position:absolute;font-size:14mm;}
+.bk-card{border:.6mm solid #333;border-radius:3mm;display:flex;flex-direction:column;overflow:hidden;}
+.bk-post{width:100mm;height:148mm;border:.6mm solid #333;border-radius:2mm;display:flex;flex-direction:column;padding:6mm;gap:3mm;}
+.bk-small{font-size:3.6mm;color:#666;font-weight:500;}
+.bk-ruby rt{font-size:.45em;font-weight:500;}
+.bk-ext{width:210mm;height:297mm;overflow:hidden;background:#fff;}

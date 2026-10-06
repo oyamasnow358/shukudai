@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="しゅくだい">
+<meta name="theme-color" content="#FFF8E7">
+<title>やすみの しゅくだい メーカー｜MieeL</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BB%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" id="touchIcon" href="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Klee+One:wght@600&display=swap" rel="stylesheet">
+<style id="bookCss">/*__BOOKCSS__*/</style>
+<style>
+  :root { --bg: #FFF8E7; --ink: #1F2937; --sub: #6B7280; --line: #EFE2C4; --main: #F08C00; --main-d: #C46A00; --blue: #1C7ED6; --go: #2F9E44;
+    --mieel: radial-gradient(circle at 50% 0%,#1B8FE8 0%,#2BB8D6 28%,#3FCB9E 45%,#8FD24A 58%,#F4D027 72%,#F7941E 100%);
+    --emoji: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--bg); color: var(--ink); font-family: "M PLUS Rounded 1c","Hiragino Maru Gothic ProN","BIZ UDPGothic","Yu Gothic UI",sans-serif; font-weight: 500; display: flex; flex-direction: column; height: 100vh; height: 100dvh; overflow: hidden;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  button { cursor: pointer; }
+  .emo { font-family: var(--emoji); font-weight: 400; }
+  .top { flex: none; display: flex; align-items: center; gap: 10px; padding: 8px 14px; border-bottom: 2px solid var(--line); background: #FFFDF6; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 7px; white-space: nowrap; font-weight: 800; }
+  .orb { width: 22px; height: 22px; border-radius: 50%; background: var(--mieel); }
+  .apptitle { font-size: 19px; font-weight: 800; flex: 1; min-width: 200px; }
+  .tb { height: 42px; padding: 0 14px; border-radius: 999px; border: 2px solid var(--line); background: #fff; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .tb.main { background: var(--main); border-color: var(--main); color: #fff; }
+  .tb.blue { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .status { font-size: 12px; color: var(--sub); min-width: 80px; }
+  .app { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(340px, 470px) minmax(0, 1fr); }
+  .ed { overflow-y: auto; padding: 12px 14px 60px; border-right: 2px solid var(--line); background: #FFFDF8; }
+  .pv { overflow-y: auto; padding: 16px; background: #EDE6D6; }
+  @media (max-width: 900px) { .app { grid-template-columns: 1fr; grid-template-rows: auto auto; overflow-y: auto; display: block; } .ed { border-right: none; overflow: visible; } .pv { overflow: visible; } body { overflow: auto; } }
+  .sec { background: #fff; border: 2px solid var(--line); border-radius: 16px; margin-bottom: 12px; overflow: hidden; }
+  .sec > summary { list-style: none; cursor: pointer; padding: 12px 14px; font-weight: 800; font-size: 17px; display: flex; align-items: center; gap: 8px; }
+  .sec > summary::-webkit-details-marker { display: none; }
+  .sec > summary::after { content: '▼'; margin-left: auto; font-size: 12px; color: var(--sub); }
+  .sec[open] > summary::after { content: '▲'; }
+  .sec .in { padding: 0 14px 14px; }
+  .fl { display: grid; gap: 4px; margin: 8px 0; }
+  .fl > span { font-size: 13px; color: var(--sub); font-weight: 700; }
+  .fl input[type=text], .fl input[type=date], .fl input[type=number], .fl select, .fl textarea { width: 100%; padding: 8px 10px; border: 2px solid #DDD3BD; border-radius: 10px; background: #fff; }
+  .fl textarea { min-height: 66px; resize: vertical; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .seg { display: flex; flex-wrap: wrap; gap: 5px; }
+  .seg button { flex: 1; min-width: 70px; padding: 7px 6px; border-radius: 10px; border: 2px solid #DDD3BD; background: #fff; font-size: 13px; font-weight: 700; }
+  .seg button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .ck { display: flex; align-items: center; gap: 8px; margin: 6px 0; font-size: 14px; }
+  .ck input { width: 22px; height: 22px; accent-color: var(--main); }
+  .preset { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 4px 0 8px; }
+  .preset button { border: 2px solid #F5C978; background: #FFF4DB; border-radius: 12px; padding: 8px; font-size: 13px; font-weight: 700; text-align: left; line-height: 1.35; }
+  .preset button small { display: block; color: var(--sub); font-weight: 500; font-size: 11px; }
+  .note { font-size: 12px; color: var(--sub); line-height: 1.6; margin: 4px 0; }
+  .plist { display: grid; gap: 8px; }
+  .pitem { border: 2px solid var(--line); border-radius: 14px; background: #FFFEFA; }
+  .pitem .ph { display: flex; align-items: center; gap: 8px; padding: 8px 10px; cursor: pointer; }
+  .pitem .ph .e { font-size: 24px; }
+  .pitem .ph .t { flex: 1; font-weight: 800; font-size: 15px; line-height: 1.3; }
+  .pitem .ph .t small { display: block; font-weight: 500; color: var(--sub); font-size: 12px; }
+  .pitem .ph .n { font-size: 12px; color: #fff; background: var(--main); border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
+  .mini { border: none; background: #F1EADB; border-radius: 8px; width: 30px; height: 30px; font-weight: 800; }
+  .mini.warn { background: #FFE3E3; color: #C92A2A; }
+  .pitem .po { padding: 2px 12px 12px; border-top: 2px dashed var(--line); }
+  .addrow { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+  .big { border: none; border-radius: 14px; padding: 12px; font-weight: 800; font-size: 15px; color: #fff; background: var(--main); }
+  .big.blue { background: var(--blue); }
+  .big.gray { background: #E9ECEF; color: var(--ink); }
+  .photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; margin-top: 8px; }
+  .pho { border: 2px solid var(--line); border-radius: 12px; padding: 5px; background: #fff; display: grid; gap: 4px; }
+  .pho img { width: 100%; height: 80px; object-fit: cover; border-radius: 8px; }
+  .pho input { width: 100%; padding: 4px 6px; border: 1.5px solid #DDD3BD; border-radius: 8px; font-size: 12px; }
+  .pho .r { display: flex; gap: 4px; }
+  .pho .r button { flex: 1; border: none; border-radius: 8px; padding: 4px; font-size: 12px; background: #F1EADB; }
+  .pho .r button.on { background: var(--main); color: #fff; }
+  .upl { display: inline-flex; align-items: center; justify-content: center; gap: 6px; border: 2px dashed #F5C978; background: #FFF9EB; border-radius: 12px; padding: 12px; width: 100%; font-weight: 800; cursor: pointer; }
+  .pvbar { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+  .pvbar b { font-size: 16px; }
+  .pw { margin: 0 auto 8px; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.18); overflow: hidden; position: relative; }
+  .pw > .bk-page, .pw > .bk-ext { transform-origin: top left; }
+  .pwlab { text-align: center; font-size: 12px; color: #7B6F58; margin-bottom: 16px; }
+  .modal { position: fixed; inset: 0; z-index: 90; background: rgba(17,24,39,.55); display: none; align-items: flex-start; justify-content: center; padding: 24px 12px; overflow-y: auto; }
+  .modal.open { display: flex; }
+  .panel { width: min(100%, 900px); background: #fff; border-radius: 22px; padding: 20px clamp(14px, 3vw, 28px) 24px; box-shadow: 0 20px 60px rgba(0,0,0,.3); }
+  .panel h2 { margin: 0 0 6px; font-size: 22px; }
+  .phead { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; margin-top: 10px; }
+  .gcard { border: 2px solid var(--line); background: #FFFEFA; border-radius: 16px; padding: 12px; text-align: left; display: flex; gap: 10px; align-items: flex-start; }
+  .gcard .e { font-size: 30px; line-height: 1; }
+  .gcard b { display: block; font-size: 15px; }
+  .gcard small { color: var(--sub); font-size: 12px; line-height: 1.5; }
+  .gcard:hover { border-color: var(--main); }
+  .gh { margin: 14px 0 0; font-size: 15px; color: var(--main-d); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 10px; }
+  .chip { border: 2px solid #DDD3BD; background: #fff; border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 700; }
+  .chip.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .loading { padding: 30px; text-align: center; color: var(--sub); }
+  .err { background: #FFF5F5; border: 2px solid #FFC9C9; color: #C92A2A; border-radius: 12px; padding: 12px; font-size: 14px; line-height: 1.6; }
+  .projs { display: grid; gap: 8px; margin-top: 10px; }
+  .proj { display: flex; align-items: center; gap: 10px; border: 2px solid var(--line); border-radius: 14px; padding: 10px 12px; }
+  .proj.cur { border-color: var(--main); background: #FFF4DB; }
+  .proj .t { flex: 1; font-weight: 800; }
+  .proj .t small { display: block; color: var(--sub); font-weight: 500; font-size: 12px; }
+  .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: rgba(17,24,39,.92); color: #fff; padding: 12px 20px; border-radius: 12px; z-index: 99; display: none; font-weight: 700; }
+  .toast.show { display: block; }
+  #printRoot { display: none; }
+  .mieel-foot { text-align: center; color: var(--sub); font-size: 12px; margin-top: 18px; line-height: 1.8; }
+  .mieel-foot a { color: var(--blue); text-decoration: none; font-weight: 700; }
+  @media print {
+    @page { size: A4 portrait; margin: 0; }
+    html, body { height: auto !important; overflow: visible !important; display: block !important; background: #fff !important; padding: 0 !important; }
+    body > *:not(#printRoot) { display: none !important; }
+    #printRoot { display: block !important; }
+    #printRoot > * { break-after: page; page-break-after: always; }
+    #printRoot > *:last-child { break-after: auto; page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="orb"></span>MieeL</div>
+  <div class="apptitle"><span class="emo">🌻</span> やすみの しゅくだい メーカー</div>
+  <span class="status" id="status"></span>
+  <button class="tb" id="projBtn" type="button">👦 <span id="projName">こども</span></button>
+  <button class="tb" id="fileBtn" type="button">💾 ほぞん・よみこみ</button>
+  <button class="tb main" id="printBtn" type="button">🖨️ いんさつ／PDF</button>
+</header>
+<div class="app">
+  <aside class="ed" id="ed"></aside>
+  <section class="pv" id="pv"><div class="pvbar"><b id="pvCount"></b><span class="note">プレビューは じっさいの A4 と おなじ レイアウトです。</span></div><div id="pvPages"></div></section>
+</div>
+<div class="modal" id="m1"><div class="panel" id="m1p"></div></div>
+<div class="toast" id="toast"></div>
+<div id="printRoot"></div>
+<input type="file" id="photoIn" accept="image/*" multiple hidden>
+<input type="file" id="jsonIn" accept="application/json,.json" hidden>
+<script>
+(function () {
+  'use strict';
+  const $ = s => document.querySelector(s);
+  const $$ = s => Array.from(document.querySelectorAll(s));
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const uid = () => Math.random().toString(36).slice(2, 10);
+  function h(tag, props) {
+    const el = document.createElement(tag);
+    if (props) Object.keys(props).forEach(k => {
+      const v = props[k]; if (v === null || v === undefined || v === false) return;
+      if (k === 'class') el.className = v; else if (k === 'html') el.innerHTML = v; else if (k.slice(0, 2) === 'on') el.addEventListener(k.slice(2), v); else if (k === 'value') el.value = v; else el.setAttribute(k, v === true ? '' : v);
+    });
+    (function add(list) { list.forEach(c => { if (c === null || c === undefined || c === false) return; if (Array.isArray(c)) add(c); else el.appendChild(typeof c === 'string' || typeof c === 'number' ? document.createTextNode(String(c)) : c); }); })(Array.prototype.slice.call(arguments, 2));
+    return el;
+  }
+  let toastT = null;
+  function toast(m) { const t = $('#toast'); t.textContent = m; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 2600); }
+  function photoById(P, id) { return P.photos.find(p => p.id === id); }
+
+/*__PAGES__*/
+
+  /* ============================================================
+     ほぞん（IndexedDB）
+     ============================================================ */
+  const DB = (() => {
+    let dbp = null; const mem = {};
+    function open() {
+      if (dbp) return dbp;
+      dbp = new Promise(res => {
+        try { const r = indexedDB.open('mieel-shukudai', 1); r.onupgradeneeded = () => r.result.createObjectStore('projects', { keyPath: 'id' }); r.onsuccess = () => res(r.result); r.onerror = () => res(null); } catch (e) { res(null); }
+      });
+      return dbp;
+    }
+    const tx = (mode, fn) => open().then(db => db ? new Promise((res, rej) => { const t = db.transaction('projects', mode), s = t.objectStore('projects'), q = fn(s); t.oncomplete = () => res(q && q.result); t.onerror = () => rej(t.error); }) : null);
+    return {
+      put: o => tx('readwrite', s => s.put(o)).then(r => { if (r === null) mem[o.id] = o; }),
+      get: id => tx('readonly', s => s.get(id)).then(r => r === null ? mem[id] : r),
+      all: () => tx('readonly', s => s.getAll()).then(r => r === null ? Object.values(mem) : r),
+      del: id => tx('readwrite', s => s.delete(id)).then(r => { if (r === null) delete mem[id]; })
+    };
+  })();
+  const LS = 'shukudai.last';
+  function defaultDates(kind) {
+    const n = new Date(); let y = n.getFullYear();
+    if (kind === 'winter') { if (n.getMonth() < 2) y--; return [y + '-12-25', (y + 1) + '-01-07']; }
+    if (kind === 'spring') { if (n.getMonth() > 3) y++; return [y + '-03-24', y + '-04-06']; }
+    if (n.getMonth() > 8) y++;
+    return [y + '-07-20', y + '-08-31'];
+  }
+  function mk(type, o) { return Object.assign({ pid: uid(), type }, PAGE_TYPES[type].def(), o || {}); }
+  function defaultPages(kind) {
+    if (kind === 'winter') return [mk('cover'), mk('list'), mk('calendar', { events: '1/1:おしょうがつ' }), mk('daily'), mk('diary', { count: 2 }), mk('kakizome'), mk('nengajo'), mk('writing'), mk('photos'), mk('chores'), mk('cert')];
+    if (kind === 'spring') return [mk('cover'), mk('list'), mk('calendar'), mk('daily'), mk('diary', { count: 2 }), mk('photos'), mk('writing'), mk('cert')];
+    return [mk('cover'), mk('list'), mk('calendar', { perPage: 2 }), mk('daily'), mk('diary'), mk('photos'), mk('observe'), mk('chores'), mk('rhythm'), mk('reading'), mk('writing'), mk('free'), mk('cert')];
+  }
+  function newProject(kind, base) {
+    const d = defaultDates(kind);
+    return Object.assign({ id: 'p' + uid(), v: 1, kind, start: d[0], end: d[1], child: '', school: '', klass: '', teacher: '', title: '',
+      style: { nameMode: 'write', dateMode: 'write', writeMode: 'masu', masu: 'M', lineGap: 'M', weather: 'circle', kanji: false },
+      pages: defaultPages(kind), photos: [], extCss: {}, coverPhoto: null, updated: Date.now() }, base || {});
+  }
+  let P = null, saveT = null;
+  function touch(re) {
+    P.updated = Date.now(); $('#status').textContent = '…';
+    clearTimeout(saveT); saveT = setTimeout(() => DB.put(P).then(() => { $('#status').textContent = '✓ ほぞん しました'; }).catch(() => { $('#status').textContent = '⚠ ほぞん できません'; }), 500);
+    if (re !== false) schedule();
+  }
+
+  /* ============================================================
+     ほかの アプリの プリント（おなじ サイトの アプリを よびだす）
+     ============================================================ */
+  const ROOT = location.pathname.split('/').slice(0, -2).join('/') + '/';
+  const CATALOG = [
+    { g: '📚 こくご', apps: [['kazu1/hiragana1', 'あ', 'ひらがな'], ['kazu1/katakana', '🔤', 'カタカナ'], ['kazu1/dakuon_handakuon', 'が', 'だくおん・はんだくおん'], ['kazu1/kanji', '🈁', 'かんじ'], ['joshi', '🧩', 'じょしの れんしゅう'], ['kazu1/bunsyou', '📖', 'ぶんしょう れんしゅう'], ['kazu1/bunshoudai2', '🔎', 'ものがたりを よみとろう'], ['kazu1/kotobakimoti', '💬', 'ちくちく・あったか ことば'], ['kazu1/kurabekko', '🧩', 'くらべっこ']] },
+    { g: '🔢 さんすう', apps: [['kazu1/kazu1', '🔢', 'かずを まなぼう'], ['kazu1/keisan', '➕', 'たしざん・ひきざん'], ['kazu1/bunshoudai', '🧮', 'ぶんしょうだい'], ['kazu1/tokei', '🕰️', 'とけい'], ['kazu1/jikan_keisan', '⏱️', 'じかんの けいさん'], ['kazu1/okane', '🪙', 'おかね'], ['kazu1/okane2', '🛒', 'おかいもの'], ['kazu1/nagasa', '📏', 'ながさ'], ['kazu1/omosa', '⚖️', 'おもさ'], ['kazu1/kasa', '🥤', 'かさ'], ['kazu1/katachi', '🔺', 'かたち'], ['kazu1/tizu_houkou', '🧭', 'ちずと ほうこう'], ['kazu1/youbi_karenda', '🗓️', 'ようびと カレンダー']] },
+    { g: '🏠 せいかつ・なかまわけ', apps: [['nakamawake', '🧺', 'なかまわけ'], ['kazu1/aisatu', '🙋', 'あいさつ'], ['kazu1/bousai', '🚨', 'ぼうさい'], ['kazu1/koutuu', '🚦', 'こうつう あんぜん'], ['kazu1/gomi_bunbetu', '🗑️', 'ごみの ぶんべつ'], ['kazu1/karadatokenkou', '🧍', 'からだと けんこう'], ['kazu1/kisetu_gyouji', '🎏', 'きせつと ぎょうじ']] }
+  ];
+  const apis = {};
+  function loadApi(path) {
+    if (apis[path]) return apis[path];
+    const pr = new Promise((res, rej) => {
+      const f = document.createElement('iframe');
+      f.style.cssText = 'position:fixed;left:-12000px;top:0;width:1100px;height:1500px;border:0';
+      f.setAttribute('aria-hidden', 'true'); f.tabIndex = -1;
+      let done = false; const fail = m => { if (!done) { done = true; f.remove(); rej(new Error(m)); } };
+      f.onload = () => {
+        let n = 0;
+        const t = setInterval(() => {
+          n++; let api = null;
+          try { api = f.contentWindow.MieelPrintAPI; } catch (e) { clearInterval(t); return fail('cross'); }
+          if (api) { clearInterval(t); done = true; res({ api, win: f.contentWindow }); }
+          else if (n > 80) { clearInterval(t); fail('noapi'); }
+        }, 150);
+      };
+      setTimeout(() => fail('timeout'), 25000);
+      f.src = ROOT + path + '/?embed=1';
+      document.body.appendChild(f);
+    });
+    apis[path] = pr; pr.catch(() => { delete apis[path]; });
+    return pr;
+  }
+  // そのアプリの CSS（:root → :host、JS で つけた いろ なども いっしょに）
+  function cssOf(win, css) {
+    let extra = '';
+    try { extra = win.document.documentElement.style.cssText || ''; } catch (e) { /* 無視 */ }
+    return css.replace(/:root/g, ':host') + (extra ? '\n:host{' + extra + '}' : '');
+  }
+  async function buildExt(pg) {
+    const { api, win } = await loadApi(pg.app);
+    const pages = [];
+    let css = '';
+    for (let i = 0; i < Math.max(1, +pg.copies || 1); i++) { const r = await api.build(pg.item, pg.params || {}); css = r.css; r.pages.forEach(x => pages.push(x)); }
+    P.extCss[pg.app] = cssOf(win, css);
+    pg.cache = { pages, at: Date.now() };
+  }
+  function extHost(html, css) {
+    const host = h('div', { class: 'bk-ext' });
+    try { const sr = host.attachShadow({ mode: 'open' }); sr.innerHTML = '<style>' + css + '</style>' + html; }
+    catch (e) { host.innerHTML = html; }
+    return host;
+  }
+
+  /* ============================================================
+     A4 ページを ならべる
+     ============================================================ */
+  function buildBook() {
+    const items = [];
+    P.pages.forEach(pg => {
+      if (pg.type === 'ext') { ((pg.cache && pg.cache.pages) || []).forEach(x => items.push({ ext: true, html: x, css: P.extCss[pg.app] || '' })); return; }
+      const T = PAGE_TYPES[pg.type]; if (!T) return;
+      try { T.make(P, pg).forEach(x => items.push({ html: x })); }
+      catch (e) { items.push({ html: '<div class="bk-page"><div class="err">ページを つくれませんでした：' + esc(T.n) + '（' + esc(e.message) + '）</div></div>' }); }
+    });
+    const own = items.filter(x => !x.ext).length; let k = 0;
+    items.forEach(x => { if (!x.ext) { k++; x.html = x.html.replace('%PG%', k + ' / ' + own); } });
+    return items;
+  }
+  function pageEl(it) { if (it.ext) return extHost(it.html, it.css); const w = h('div'); w.innerHTML = it.html; return w.firstElementChild || w; }
+  let renderT = null;
+  function schedule() { clearTimeout(renderT); renderT = setTimeout(renderPreview, 350); }
+  function renderPreview() {
+    const box = $('#pvPages'); if (!box) return;
+    const items = buildBook();
+    const W = Math.max(260, Math.min(820, box.clientWidth - 10)), MM = 96 / 25.4, sc = W / (210 * MM);
+    box.innerHTML = '';
+    items.forEach((it, i) => {
+      const w = h('div', { class: 'pw', style: 'width:' + W + 'px;height:' + (297 * MM * sc) + 'px' }), el = pageEl(it);
+      el.style.transform = 'scale(' + sc + ')';
+      w.appendChild(el); box.appendChild(w); box.appendChild(h('div', { class: 'pwlab' }, (i + 1) + ' ページ' + (it.ext ? '（アプリの プリント）' : '')));
+    });
+    $('#pvCount').textContent = '📄 ぜんぶで ' + items.length + ' ページ';
+  }
+  window.addEventListener('resize', schedule);
+
+  /* ============================================================
+     へんしゅう がめん
+     ============================================================ */
+  const seg = (opts, cur, on) => h('div', { class: 'seg' }, opts.map(o => h('button', { type: 'button', class: String(cur) === String(o[0]) ? 'on' : '', onclick: () => on(o[0]) }, o[1])));
+  const fld = (label, el) => h('label', { class: 'fl' }, h('span', null, label), el);
+  const inp = (obj, key, ph, type, re) => h('input', { type: type || 'text', value: obj[key] == null ? '' : obj[key], placeholder: ph || '', oninput: e => { obj[key] = type === 'number' ? +e.target.value : e.target.value; touch(); if (re) re(); } });
+  const ta = (obj, key, ph) => h('textarea', { placeholder: ph || '', oninput: e => { obj[key] = e.target.value; touch(); } }, obj[key] || '');
+  const ck = (obj, key, label) => h('label', { class: 'ck' }, h('input', { type: 'checkbox', checked: !!obj[key], onchange: e => { obj[key] = e.target.checked; touch(); renderEditor(); } }), label);
+  const openState = {};
+  function sec(id, title, kids, open) {
+    const d = h('details', { class: 'sec' }, h('summary', null, title), h('div', { class: 'in' }, kids));
+    if (openState[id] === undefined ? open : openState[id]) d.open = true;
+    d.addEventListener('toggle', () => { openState[id] = d.open; });
+    return d;
+  }
+  const PRESETS = [
+    { n: '✋ かくのが にがて', d: 'えらんで ○を つける・なまえは なぞる', s: { nameMode: 'trace', dateMode: 'print', writeMode: 'choose', masu: 'L', weather: 'circle', kanji: false } },
+    { n: '✏️ なぞりから', d: 'うすい もじを なぞる・おおきい マス', s: { nameMode: 'trace', dateMode: 'trace', writeMode: 'trace', masu: 'L', weather: 'circle', kanji: false } },
+    { n: '🟩 マスに かける', d: 'ふつうの マス・ひづけも かく', s: { nameMode: 'write', dateMode: 'write', writeMode: 'masu', masu: 'M', weather: 'circle', kanji: false } },
+    { n: '📏 ぎょうに かける', d: 'せんの うえに かく・かんじ（ふりがな）', s: { nameMode: 'write', dateMode: 'write', writeMode: 'line', lineGap: 'M', weather: 'write', kanji: true } }
+  ];
+  function renderEditor() {
+    const ed = $('#ed'), y = ed.scrollTop; ed.innerHTML = '';
+    const S = P.style, K = KINDS[P.kind];
+    ed.append(
+      sec('child', '👦 こども', [
+        h('div', { class: 'two' }, fld('なまえ', inp(P, 'child', 'やまだ はなこ', 'text', updateProjName)), fld('くみ', inp(P, 'klass', '1ねん 1くみ'))),
+        h('div', { class: 'two' }, fld('がっこう', inp(P, 'school', '〇〇とくべつしえんがっこう')), fld('せんせい', inp(P, 'teacher', 'たんにん'))),
+        h('p', { class: 'note' }, '👦 ボタンから、こどもごとに べつの しゅくだいを つくって ほぞん できます。')], true),
+      sec('kind', K.icon + ' やすみ', [
+        fld('やすみの しゅるい', seg([['summer', '🌻 なつやすみ'], ['winter', '⛄ ふゆやすみ'], ['spring', '🌸 はるやすみ']], P.kind, v => { if (v === P.kind) return; if (confirm('ページを ' + KINDS[v].n + ' むけに いれかえますか？（いまの ページの せっていは きえます）')) { P.pages = defaultPages(v); const d = defaultDates(v); P.start = d[0]; P.end = d[1]; } P.kind = v; touch(); renderEditor(); })),
+        h('div', { class: 'two' }, fld('はじまり', inp(P, 'start', '', 'date')), fld('おわり', inp(P, 'end', '', 'date'))),
+        fld('ひょうしの タイトル', inp(P, 'title', K.n + 'の しゅくだい'))], true),
+      sec('style', '✍️ かく ちから（こどもの じったい）', [
+        h('p', { class: 'note' }, 'まず ちかい ものを えらんで、そのあと こまかく かえられます。ぜんぶの ページに はんえい されます。'),
+        h('div', { class: 'preset' }, PRESETS.map(pr => h('button', { type: 'button', onclick: () => { Object.assign(P.style, pr.s); touch(); renderEditor(); toast(pr.n + ' に しました'); } }, pr.n, h('small', null, pr.d)))),
+        fld('なまえ', seg([['print', 'いんさつ'], ['trace', 'なぞる'], ['write', 'じぶんで かく']], S.nameMode, v => { S.nameMode = v; touch(); renderEditor(); })),
+        fld('ひづけ', seg([['print', 'いんさつ'], ['trace', 'なぞる'], ['write', '（　）に かく']], S.dateMode, v => { S.dateMode = v; touch(); renderEditor(); })),
+        fld('ぶんを かく ところ', seg([['trace', 'なぞり'], ['masu', 'マス'], ['line', 'せん'], ['choose', 'えらんで ○']], S.writeMode, v => { S.writeMode = v; touch(); renderEditor(); })),
+        S.writeMode === 'line' ? fld('せんの はば', seg([['L', 'ひろい'], ['M', 'ふつう'], ['S', 'せまい']], S.lineGap, v => { S.lineGap = v; touch(); renderEditor(); })) : fld('マスの おおきさ', seg([['L', 'おおきい 18mm'], ['M', 'ふつう 14mm'], ['S', 'ちいさい 10mm']], S.masu, v => { S.masu = v; touch(); renderEditor(); })),
+        fld('てんき', seg([['circle', 'えに ○'], ['write', 'じで かく']], S.weather, v => { S.weather = v; touch(); renderEditor(); })),
+        fld('みだしの もじ', seg([[false, 'ひらがな'], [true, 'かんじ＋ふりがな']], !!S.kanji, v => { S.kanji = v === true || v === 'true'; touch(); renderEditor(); }))], true),
+      sec('photos', '📷 しゃしん（' + P.photos.length + 'まい）', [
+        h('p', { class: 'note' }, 'やすみの あいだの しゃしんを いれると「おもいで しゃしん」「えにっき」「ひょうし」に はいります。やすみの まえに くばる ときは、しゃしんなしで「しゃしんを はろう」の わくが でます。'),
+        h('button', { type: 'button', class: 'upl', onclick: () => $('#photoIn').click() }, '📷 しゃしんを えらぶ（いくつでも）'),
+        h('div', { class: 'photos' }, P.photos.map(p => h('div', { class: 'pho' }, h('img', { src: p.src, alt: '' }),
+          h('input', { type: 'date', value: p.date || '', oninput: e => { p.date = e.target.value; touch(); } }),
+          h('input', { type: 'text', value: p.caption || '', placeholder: 'ひとこと（れい：うみ）', oninput: e => { p.caption = e.target.value; touch(); } }),
+          h('div', { class: 'r' }, h('button', { type: 'button', class: P.coverPhoto === p.id ? 'on' : '', onclick: () => { P.coverPhoto = P.coverPhoto === p.id ? null : p.id; touch(); renderEditor(); } }, '📘 ひょうし'),
+            h('button', { type: 'button', onclick: () => { const i = P.photos.indexOf(p); if (i > 0) { P.photos.splice(i, 1); P.photos.splice(i - 1, 0, p); touch(); renderEditor(); } } }, '◀'),
+            h('button', { type: 'button', onclick: () => { if (confirm('この しゃしんを けしますか？')) { P.photos.splice(P.photos.indexOf(p), 1); if (P.coverPhoto === p.id) P.coverPhoto = null; touch(); renderEditor(); } } }, '🗑'))))) ], false),
+      sec('pages', '📄 しゅくだいの ページ（' + P.pages.length + '）', [
+        h('div', { class: 'plist' }, P.pages.map((pg, i) => pageItem(pg, i))),
+        h('div', { class: 'addrow' }, h('button', { type: 'button', class: 'big', onclick: openAddPage }, '＋ ページを ついか'), h('button', { type: 'button', class: 'big blue', onclick: () => openExt(null) }, '🧩 アプリの プリントを ついか'))], true),
+      h('div', { class: 'mieel-foot' }, h('div', null, h('b', null, 'MieeL'), ' ', h('a', { href: 'https://www.mieel-support-school.com/', target: '_blank', rel: 'noopener' }, 'www.mieel-support-school.com')), 'データは この たんまつの なかだけに ほぞん されます。')
+    );
+    ed.scrollTop = y;
+  }
+  const pageOpen = {};
+  function pageItem(pg, i) {
+    const T = PAGE_TYPES[pg.type];
+    const nm = pg.type === 'ext' ? (pg.itemName || 'プリント') : (pg.title && pg.type !== 'free' ? pg.title : T.n);
+    const sub = pg.type === 'ext' ? (pg.appTitle || '') + (pg.cache ? '' : '（まだ つくって いません）') : T.d;
+    const cnt = countPages(pg);
+    const body = pageOpen[pg.pid] ? h('div', { class: 'po' }, pageOpts(pg)) : null;
+    return h('div', { class: 'pitem' },
+      h('div', { class: 'ph', onclick: e => { if (e.target.closest('button')) return; pageOpen[pg.pid] = !pageOpen[pg.pid]; renderEditor(); } },
+        h('span', { class: 'e emo' }, pg.type === 'ext' ? (pg.icon || '🧩') : T.e), h('span', { class: 't' }, nm, h('small', null, sub)), h('span', { class: 'n' }, cnt + 'ページ'),
+        h('button', { type: 'button', class: 'mini', 'aria-label': 'うえへ', onclick: () => { if (i > 0) { P.pages.splice(i, 1); P.pages.splice(i - 1, 0, pg); touch(); renderEditor(); } } }, '↑'),
+        h('button', { type: 'button', class: 'mini', 'aria-label': 'したへ', onclick: () => { if (i < P.pages.length - 1) { P.pages.splice(i, 1); P.pages.splice(i + 1, 0, pg); touch(); renderEditor(); } } }, '↓'),
+        h('button', { type: 'button', class: 'mini warn', 'aria-label': 'けす', onclick: () => { if (confirm('「' + nm + '」を けしますか？')) { P.pages.splice(i, 1); touch(); renderEditor(); } } }, '✕')),
+      body);
+  }
+  function countPages(pg) {
+    if (pg.type === 'ext') return pg.cache && pg.cache.pages ? pg.cache.pages.length : 0;
+    try { return PAGE_TYPES[pg.type].make(P, pg).length; } catch (e) { return 0; }
+  }
+  function pageOpts(pg) {
+    const re = () => { touch(); renderEditor(); };
+    const S = (label, key, opts) => fld(label, seg(opts, pg[key], v => { pg[key] = (typeof pg[key] === 'number' || /^\d+$/.test(String(v))) ? +v : v; re(); }));
+    const N = (label, key, min, max) => fld(label, h('input', { type: 'number', min: String(min), max: String(max), value: pg[key], onchange: e => { pg[key] = Math.max(min, Math.min(max, +e.target.value || min)); re(); } }));
+    switch (pg.type) {
+      case 'cover': return [h('p', { class: 'note' }, 'タイトルや なまえは うえの「こども」「やすみ」で かえられます。ひょうしの しゃしんは 📷 しゃしん で「📘 ひょうし」を おします。')];
+      case 'list': return [fld('ほかに やること（1ぎょうに 1つ。れい：まいにち はみがき）', ta(pg, 'extra')), h('p', { class: 'note' }, 'ほかの ページは じどうで いちらんに はいります。')];
+      case 'calendar': return [S('1ページに', 'perPage', [[1, '1かげつ（おおきい）'], [2, '2かげつ']]), fld('よてい（れい：8/15:とうこうび）1ぎょうに 1つ', ta(pg, 'events'))];
+      case 'daily': return [S('かきかた', 'span', [['week', '1しゅうかんの ひょう'], ['all', 'まいにち'], ['weekday', 'へいじつ'], ['every2', '2にちに 1かい'], ['every3', '3にちに 1かい'], ['week1', '1しゅうかんに 1かい']]),
+        pg.span !== 'week' ? S('1ページに', 'perPage', [[1, '1にちぶん'], [2, '2にちぶん']]) : null,
+        fld('できた こと（, で くぎる）', inp(pg, 'items')), ck(pg, 'clock', '⏰ おきた・ねた じかん'), ck(pg, 'comment', '💬 ひとこと'), pg.span !== 'week' ? ck(pg, 'photo', '📷 しゃしん・えの わく') : null,
+        P.style.writeMode === 'trace' ? fld('なぞる ぶん（ひとこと）', inp(pg, 'trace', 'きょうは ')) : null];
+      case 'diary': return [N('まいすう', 'count', 1, 40), ck(pg, 'photos', '📷 しゃしんを じゅんばんに いれる（えの かわりに）'), P.style.writeMode === 'trace' ? fld('なぞる ぶん', inp(pg, 'trace', 'きょうは ')) : null];
+      case 'photos': return [S('1ページの しゃしん', 'perPage', [[1, '1まい'], [2, '2まい'], [4, '4まい']]), N('しゃしんが ない ときの わくの かず', 'blank', 1, 8), ck(pg, 'comment', '💬 ひとこと らん')];
+      case 'observe': return [fld('かんさつ する もの', inp(pg, 'subject')), N('まいすう', 'count', 1, 30), fld('はかる こと', inp(pg, 'measure'))];
+      case 'chores': return [fld('おてつだい（1ぎょうに 1つ）', ta(pg, 'items'))];
+      case 'rhythm': return [h('div', { class: 'two' }, fld('おきる めあて', inp(pg, 'wake')), fld('ねる めあて', inp(pg, 'sleep')))];
+      case 'reading': return [N('ページ（1ページに 3さつ）', 'pages', 1, 10)];
+      case 'writing': return [fld('ことば（からっぽ なら きせつの ことば）', ta(pg, 'words', 'すいか はなび ひまわり'))];
+      case 'kakizome': return [fld('かく ことば（8もじ まで）', inp(pg, 'text'))];
+      case 'free': return [fld('タイトル', inp(pg, 'title')), S('かたち', 'layout', [['both', 'え＋ぶん'], ['draw', 'えだけ'], ['write', 'ぶんだけ']])];
+      case 'cert': return [fld('メッセージ（からっぽ なら おまかせ）', ta(pg, 'msg'))];
+      case 'ext': return [h('p', { class: 'note' }, (pg.appTitle || '') + '／' + (pg.itemName || '') + '　' + paramText(pg)),
+        h('div', { class: 'addrow' }, h('button', { type: 'button', class: 'big gray', onclick: () => regen(pg) }, '🔄 べつの もんだい'), h('button', { type: 'button', class: 'big gray', onclick: () => openExt(pg) }, '✏️ せっていを かえる'))];
+      default: return [];
+    }
+  }
+  function paramText(pg) { const p = pg.params || {}; return Object.keys(p).map(k => (pg.labels && pg.labels[k] ? pg.labels[k] : k) + '：' + (pg.valLabels && pg.valLabels[k] ? pg.valLabels[k] : p[k])).join('・') + (pg.copies > 1 ? '・' + pg.copies + 'かいぶん' : ''); }
+  async function regen(pg) { toast('つくりなおして います…'); try { await buildExt(pg); touch(); renderEditor(); toast('あたらしい もんだいに しました'); } catch (e) { extError(e); } }
+  function updateProjName() { $('#projName').textContent = P.child || 'こども'; }
+
+  /* ---------- ページを ついか ---------- */
+  function openM(fill) { const p = $('#m1p'); p.innerHTML = ''; fill(p); $('#m1').classList.add('open'); $('#m1').scrollTop = 0; }
+  function closeM() { $('#m1').classList.remove('open'); }
+  $('#m1').addEventListener('click', e => { if (e.target.id === 'm1') closeM(); });
+  function openAddPage() {
+    openM(p => p.append(h('div', { class: 'phead' }, h('h2', null, '＋ ページを ついか'), h('button', { type: 'button', class: 'tb', onclick: closeM }, 'とじる')),
+      h('div', { class: 'grid' }, Object.keys(PAGE_TYPES).filter(k => k !== 'ext').map(k => { const T = PAGE_TYPES[k]; return h('button', { type: 'button', class: 'gcard', onclick: () => { const pg = mk(k); const ci = P.pages.findIndex(x => x.type === 'cert'); if (ci >= 0) P.pages.splice(ci, 0, pg); else P.pages.push(pg); pageOpen[pg.pid] = true; touch(); renderEditor(); closeM(); toast(T.n + ' を ついか しました'); } }, h('span', { class: 'e emo' }, T.e), h('span', null, h('b', null, T.n), h('small', null, T.d))); }))));
+  }
+
+  /* ---------- アプリの プリントを ついか ---------- */
+  function extError(e) {
+    const m = String(e && e.message || e);
+    const msg = m === 'cross' || location.protocol === 'file:' ? 'この きのうは、MieeL の アプリと おなじ サイト（oyamasnow358.github.io）に こうかい した ときに つかえます。' : m === 'timeout' || m === 'noapi' ? 'アプリを よみこめませんでした。インターネットに つながって いるか たしかめて、もういちど おしてください。' : 'エラー：' + m;
+    toast('よみこめませんでした');
+    return h('div', { class: 'err' }, msg);
+  }
+  function openExt(edit) {
+    let path = edit ? edit.app : null;
+    const draw = (p, step, data) => {
+      p.innerHTML = '';
+      p.append(h('div', { class: 'phead' }, h('h2', null, '🧩 アプリの プリントを ついか'), h('button', { type: 'button', class: 'tb', onclick: closeM }, 'とじる')));
+      if (step === 'app') {
+        p.append(h('p', { class: 'note' }, 'MieeL の アプリで つくれる プリントを、この しゅくだいに いれられます。アプリを えらんでください。'));
+        CATALOG.forEach(c => p.append(h('div', { class: 'gh' }, c.g), h('div', { class: 'grid' }, c.apps.map(a => h('button', { type: 'button', class: 'gcard', onclick: () => pickApp(a) }, h('span', { class: 'e emo' }, a[1]), h('span', null, h('b', null, a[2]), h('small', null, a[0] === 'joshi' || a[0] === 'nakamawake' ? '' : 'きょうざい ライブラリ')))))));
+      } else if (step === 'load') p.append(h('div', { class: 'loading' }, '⏳ ', data.title, ' を よみこんで います…'));
+      else if (step === 'err') p.append(data, h('div', { class: 'addrow' }, h('button', { type: 'button', class: 'big gray', onclick: () => draw(p, 'app') }, '◀ アプリを えらびなおす')));
+      else if (step === 'item') {
+        const { a, list } = data;
+        let cur = edit && edit.app === a[0] ? list.find(x => x.id === edit.item) : null;
+        const vals = Object.assign({}, edit && edit.app === a[0] ? edit.params : {});
+        let copies = edit && edit.app === a[0] ? (edit.copies || 1) : 1;
+        const body = h('div');
+        const redraw = () => {
+          body.innerHTML = '';
+          body.append(h('div', { class: 'gh' }, '① プリントの しゅるい'), h('div', { class: 'chips' }, list.map(it => h('button', { type: 'button', class: 'chip' + (cur && cur.id === it.id ? ' on' : ''), onclick: () => { cur = it; it.params.forEach(pp => { if (vals[pp.key] === undefined) vals[pp.key] = pp.def; }); redraw(); } }, (it.icon ? it.icon + ' ' : '') + it.name))));
+          if (cur) {
+            cur.params.forEach(pp => { if (vals[pp.key] === undefined) vals[pp.key] = pp.def; body.append(h('div', { class: 'gh' }, pp.label), h('div', { class: 'chips' }, pp.opts.map(o => h('button', { type: 'button', class: 'chip' + (String(vals[pp.key]) === String(o[0]) ? ' on' : ''), onclick: () => { vals[pp.key] = o[0]; redraw(); } }, o[1])))); });
+            body.append(h('div', { class: 'gh' }, 'なんかい ぶん（もんだいを かえて くりかえす）'), h('div', { class: 'chips' }, [1, 2, 3, 4, 5].map(n => h('button', { type: 'button', class: 'chip' + (copies === n ? ' on' : ''), onclick: () => { copies = n; redraw(); } }, n + 'かい'))));
+            body.append(h('div', { class: 'addrow' }, h('button', { type: 'button', class: 'big gray', onclick: () => draw(p, 'app') }, '◀ アプリを えらびなおす'),
+              h('button', { type: 'button', class: 'big', onclick: async e => {
+                e.currentTarget.disabled = true; e.currentTarget.textContent = '⏳ つくって います…';
+                const pg = edit || { pid: uid(), type: 'ext' };
+                Object.assign(pg, { app: a[0], appTitle: a[2], icon: a[1], item: cur.id, itemName: cur.name, params: Object.assign({}, vals), copies,
+                  labels: Object.fromEntries(cur.params.map(x => [x.key, x.label])), valLabels: Object.fromEntries(cur.params.map(x => { const o = x.opts.find(o => String(o[0]) === String(vals[x.key])); return [x.key, o ? o[1] : vals[x.key]]; })) });
+                try {
+                  await buildExt(pg);
+                  if (!edit) { const ci = P.pages.findIndex(x => x.type === 'cert'); if (ci >= 0) P.pages.splice(ci, 0, pg); else P.pages.push(pg); }
+                  touch(); renderEditor(); closeM(); toast((cur.icon || '') + ' ' + cur.name + '（' + pg.cache.pages.length + 'ページ）を いれました');
+                } catch (err) { draw(p, 'err', extError(err)); }
+              } }, edit ? '✅ これに かえる' : '✅ しゅくだいに いれる')));
+          }
+        };
+        p.append(h('p', { class: 'note' }, h('b', null, a[1] + ' ' + a[2]), '　の プリントを えらんでください。'), body);
+        redraw();
+      }
+    };
+    const pickApp = async a => {
+      const p = $('#m1p'); draw(p, 'load', { title: a[2] });
+      try { const { api } = await loadApi(a[0]); draw(p, 'item', { a, list: api.list() }); }
+      catch (e) { draw(p, 'err', extError(e)); }
+    };
+    openM(p => { if (path) { const a = CATALOG.reduce((x, c) => x.concat(c.apps), []).find(x => x[0] === path) || [path, edit.icon, edit.appTitle]; pickApp(a); } else draw(p, 'app'); });
+  }
+
+  /* ---------- しゃしん ---------- */
+  function resize(file) {
+    return new Promise((res, rej) => { const u = URL.createObjectURL(file), img = new Image(); img.onload = () => { const sc = Math.min(1, 1400 / Math.max(img.width, img.height)), c = document.createElement('canvas'); c.width = Math.round(img.width * sc); c.height = Math.round(img.height * sc); const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(img, 0, 0, c.width, c.height); URL.revokeObjectURL(u); res(c.toDataURL('image/jpeg', .82)); }; img.onerror = () => { URL.revokeObjectURL(u); rej(); }; img.src = u; });
+  }
+  $('#photoIn').addEventListener('change', async e => {
+    const files = Array.from(e.target.files || []); e.target.value = '';
+    if (!files.length) return;
+    toast('しゃしんを よみこんで います…');
+    for (const f of files) { try { const src = await resize(f); const d = f.lastModified ? ymd(new Date(f.lastModified)) : ''; P.photos.push({ id: 'ph' + uid(), src, date: d >= P.start && d <= P.end ? d : '', caption: '' }); } catch (err) { /* よめない ファイルは とばす */ } }
+    P.photos.sort((a, b) => String(a.date || '9').localeCompare(String(b.date || '9')));
+    openState.photos = true; touch(); renderEditor(); toast('しゃしんを ' + files.length + 'まい いれました');
+  });
+
+  /* ---------- こども（プロジェクト） ---------- */
+  async function openProjects() {
+    const list = (await DB.all()).sort((a, b) => b.updated - a.updated);
+    openM(p => p.append(h('div', { class: 'phead' }, h('h2', null, '👦 こどもごとの しゅくだい'), h('button', { type: 'button', class: 'tb', onclick: closeM }, 'とじる')),
+      h('p', { class: 'note' }, 'こどもごとに、かく ちから や ページを かえて ほぞん できます。「この せっていで あたらしく」で、いまの ページの くみあわせの まま べつの こを つくれます。'),
+      h('div', { class: 'projs' }, list.map(x => h('div', { class: 'proj' + (x.id === P.id ? ' cur' : '') }, h('span', { class: 'emo', style: 'font-size:26px' }, (KINDS[x.kind] || KINDS.summer).icon),
+        h('span', { class: 't' }, x.child || '（なまえ なし）', h('small', null, (KINDS[x.kind] || KINDS.summer).n + '・' + (x.pages || []).length + 'ページ・' + new Date(x.updated).toLocaleDateString('ja-JP'))),
+        x.id !== P.id ? h('button', { type: 'button', class: 'tb', onclick: () => { P = x; localStorage.setItem(LS, P.id); updateProjName(); renderEditor(); schedule(); closeM(); } }, 'ひらく') : h('b', { style: 'color:var(--main-d)' }, 'いま'),
+        h('button', { type: 'button', class: 'tb', onclick: async () => { if (!confirm('「' + (x.child || 'なまえ なし') + '」を けしますか？')) return; await DB.del(x.id); if (x.id === P.id) { const rest = (await DB.all()); P = rest[0] || newProject('summer'); await DB.put(P); updateProjName(); renderEditor(); schedule(); } openProjects(); } }, '🗑')))),
+      h('div', { class: 'addrow' },
+        h('button', { type: 'button', class: 'big', onclick: async () => { const nm = prompt('こどもの なまえ（あとで かえられます）', ''); if (nm === null) return; const c = JSON.parse(JSON.stringify(P)); Object.assign(c, { id: 'p' + uid(), child: nm, photos: [], coverPhoto: null, updated: Date.now() }); c.pages.forEach(x => { x.pid = uid(); }); P = c; await DB.put(P); localStorage.setItem(LS, P.id); updateProjName(); renderEditor(); schedule(); closeM(); toast(nm + ' さんを つくりました'); } }, '👥 この せっていで あたらしく'),
+        h('span')),
+      h('div', { class: 'gh' }, '＋ さいしょから つくる'),
+      h('div', { class: 'addrow', style: 'grid-template-columns:1fr 1fr 1fr' }, ['summer', 'winter', 'spring'].map(kind => h('button', { type: 'button', class: 'big blue', onclick: async () => { P = newProject(kind); await DB.put(P); localStorage.setItem(LS, P.id); updateProjName(); renderEditor(); schedule(); closeM(); toast(KINDS[kind].n + 'の しゅくだいを つくりました'); } }, KINDS[kind].icon + ' ' + KINDS[kind].n)))));
+  }
+
+  /* ---------- ほぞん・よみこみ・いんさつ ---------- */
+  function download(name, text, type) { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type })); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000); }
+  const fname = ext => ((KINDS[P.kind] || KINDS.summer).n + 'の しゅくだい_' + (P.child || 'なまえなし')).replace(/[\\/:*?"<>|\s]/g, '_') + '.' + ext;
+  function bookHTML() {
+    const items = buildBook();
+    const body = items.map(it => it.ext ? '<div class="bk-ext"><template shadowrootmode="open"><style>' + it.css + '</style>' + it.html + '</template></div>' : it.html).join('\n');
+    return '<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' + esc(fname('').slice(0, -1)) + '</title>' +
+      '<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Klee+One:wght@600&display=swap" rel="stylesheet">' +
+      '<style>' + $('#bookCss').textContent + '\nbody{margin:0;background:#888}@page{size:A4 portrait;margin:0}body>*{margin:0 auto 10mm;box-shadow:0 2mm 6mm rgba(0,0,0,.3)}@media print{body{background:#fff}body>*{margin:0;box-shadow:none;break-after:page;page-break-after:always}body>*:last-child{break-after:auto}}</style></head><body>' + body + '</body></html>';
+  }
+  function openFile() {
+    openM(p => p.append(h('div', { class: 'phead' }, h('h2', null, '💾 ほぞん・よみこみ'), h('button', { type: 'button', class: 'tb', onclick: closeM }, 'とじる')),
+      h('p', { class: 'note' }, 'この アプリの なかには じどうで ほぞん されて います（この たんまつ だけ）。ほかの パソコンや iPad に うつす ときや、のこして おく ときに つかいます。'),
+      h('div', { class: 'grid' },
+        h('button', { type: 'button', class: 'gcard', onclick: doPrint }, h('span', { class: 'e emo' }, '🖨️'), h('span', null, h('b', null, 'いんさつ／PDFで ほぞん'), h('small', null, 'いんさつの がめんで「PDFに ほぞん」を えらぶと PDF に なります'))),
+        h('button', { type: 'button', class: 'gcard', onclick: () => { download(fname('html'), bookHTML(), 'text/html'); toast('HTML ファイルを ほぞん しました'); } }, h('span', { class: 'e emo' }, '📄'), h('span', null, h('b', null, 'いんさつ よう ファイル（HTML）'), h('small', null, 'あとで ひらいて、いつでも いんさつ できる ファイル'))),
+        h('button', { type: 'button', class: 'gcard', onclick: () => { download(fname('json'), JSON.stringify(P), 'application/json'); toast('データを ほぞん しました'); } }, h('span', { class: 'e emo' }, '💾'), h('span', null, h('b', null, 'データを ほぞん'), h('small', null, 'しゃしんも ふくめて ぜんぶ。べつの たんまつで よみこめます'))),
+        h('button', { type: 'button', class: 'gcard', onclick: () => $('#jsonIn').click() }, h('span', { class: 'e emo' }, '📂'), h('span', null, h('b', null, 'データを よみこむ'), h('small', null, 'ほぞんした データを あたらしい こども として よみこみます'))))));
+  }
+  $('#jsonIn').addEventListener('change', e => {
+    const f = e.target.files && e.target.files[0]; e.target.value = ''; if (!f) return;
+    const r = new FileReader();
+    r.onload = async () => { try { const o = JSON.parse(String(r.result)); if (!o || !Array.isArray(o.pages) || !o.style) throw new Error(); o.id = 'p' + uid(); o.updated = Date.now(); o.extCss = o.extCss || {}; o.photos = o.photos || []; P = o; await DB.put(P); localStorage.setItem(LS, P.id); updateProjName(); renderEditor(); schedule(); closeM(); toast('よみこみました'); } catch (err) { toast('この ファイルは よみこめません'); } };
+    r.readAsText(f);
+  });
+  async function doPrint() {
+    closeM(); toast('じゅんびして います…');
+    const root = $('#printRoot'); root.innerHTML = '';
+    buildBook().forEach(it => root.appendChild(pageEl(it)));
+    const imgs = Array.from(root.querySelectorAll('img'));
+    await Promise.all(imgs.map(i => i.decode ? i.decode().catch(() => { }) : Promise.resolve()));
+    if (document.fonts && document.fonts.ready) await document.fonts.ready;
+    setTimeout(() => window.print(), 150);
+  }
+  window.addEventListener('afterprint', () => { $('#printRoot').innerHTML = ''; });
+  $('#printBtn').addEventListener('click', doPrint);
+  $('#fileBtn').addEventListener('click', openFile);
+  $('#projBtn').addEventListener('click', openProjects);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeM(); });
+
+  /* ---------- はじめる ---------- */
+  (async () => {
+    const last = localStorage.getItem(LS);
+    P = (last && await DB.get(last)) || (await DB.all()).sort((a, b) => b.updated - a.updated)[0];
+    if (!P) { P = newProject('summer'); await DB.put(P); }
+    P.extCss = P.extCss || {}; P.photos = P.photos || [];
+    localStorage.setItem(LS, P.id);
+    updateProjName(); renderEditor(); renderPreview();
+    window.__hw = { get P() { return P; }, PAGE_TYPES, buildBook, bookHTML, pageEl, loadApi, buildExt, renderPreview, renderEditor, touch };
+  })();
+})();
+</script>
+</body>
+</html>
