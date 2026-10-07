@@ -625,7 +625,7 @@
   const CATALOG = [
     { g: '📚 こくご', apps: [['kazu1/hiragana1', 'あ', 'ひらがな'], ['kazu1/katakana', '🔤', 'カタカナ'], ['kazu1/dakuon_handakuon', 'が', 'だくおん・はんだくおん'], ['kazu1/kanji', '🈁', 'かんじ'], ['joshi', '🧩', 'じょしの れんしゅう'], ['kazu1/bunsyou', '📖', 'ぶんしょう れんしゅう'], ['kazu1/bunshoudai2', '🔎', 'ものがたりを よみとろう'], ['kazu1/kotobakimoti', '💬', 'ちくちく・あったか ことば'], ['kazu1/kurabekko', '🧩', 'くらべっこ']] },
     { g: '🔢 さんすう', apps: [['kazu1/kazu1', '🔢', 'かずを まなぼう'], ['kazu1/keisan', '➕', 'たしざん・ひきざん'], ['kazu1/bunshoudai', '🧮', 'ぶんしょうだい'], ['kazu1/tokei', '🕰️', 'とけい'], ['kazu1/jikan_keisan', '⏱️', 'じかんの けいさん'], ['kazu1/okane', '🪙', 'おかね'], ['kazu1/okane2', '🛒', 'おかいもの'], ['kazu1/nagasa', '📏', 'ながさ'], ['kazu1/omosa', '⚖️', 'おもさ'], ['kazu1/kasa', '🥤', 'かさ'], ['kazu1/katachi', '🔺', 'かたち'], ['kazu1/tizu_houkou', '🧭', 'ちずと ほうこう'], ['kazu1/youbi_karenda', '🗓️', 'ようびと カレンダー']] },
-    { g: '🏠 せいかつ・なかまわけ', apps: [['nakamawake', '🧺', 'なかまわけ'], ['kazu1/aisatu', '🙋', 'あいさつ'], ['kazu1/bousai', '🚨', 'ぼうさい'], ['kazu1/koutuu', '🚦', 'こうつう あんぜん'], ['kazu1/gomi_bunbetu', '🗑️', 'ごみの ぶんべつ'], ['kazu1/karadatokenkou', '🧍', 'からだと けんこう'], ['kazu1/kisetu_gyouji', '🎏', 'きせつと ぎょうじ']] }
+    { g: '🏠 せいかつ・なかまわけ', apps: [['nakamawake', '🧺', 'なかまわけ'], ['cooldown', '🌋', 'こころの火山 クールダウン'], ['kazu1/aisatu', '🙋', 'あいさつ'], ['kazu1/bousai', '🚨', 'ぼうさい'], ['kazu1/koutuu', '🚦', 'こうつう あんぜん'], ['kazu1/gomi_bunbetu', '🗑️', 'ごみの ぶんべつ'], ['kazu1/karadatokenkou', '🧍', 'からだと けんこう'], ['kazu1/kisetu_gyouji', '🎏', 'きせつと ぎょうじ']] }
   ];
   const apis = {};
   function loadApi(path) {
@@ -835,7 +835,7 @@
       p.append(h('div', { class: 'phead' }, h('h2', null, '🧩 アプリの プリントを ついか'), h('button', { type: 'button', class: 'tb', onclick: closeM }, 'とじる')));
       if (step === 'app') {
         p.append(h('p', { class: 'note' }, 'MieeL の アプリで つくれる プリントを、この しゅくだいに いれられます。アプリを えらんでください。'));
-        CATALOG.forEach(c => p.append(h('div', { class: 'gh' }, c.g), h('div', { class: 'grid' }, c.apps.map(a => h('button', { type: 'button', class: 'gcard', onclick: () => pickApp(a) }, h('span', { class: 'e emo' }, a[1]), h('span', null, h('b', null, a[2]), h('small', null, a[0] === 'joshi' || a[0] === 'nakamawake' ? '' : 'きょうざい ライブラリ')))))));
+        CATALOG.forEach(c => p.append(h('div', { class: 'gh' }, c.g), h('div', { class: 'grid' }, c.apps.map(a => h('button', { type: 'button', class: 'gcard', onclick: () => pickApp(a) }, h('span', { class: 'e emo' }, a[1]), h('span', null, h('b', null, a[2]), h('small', null, a[0].indexOf('kazu1/') !== 0 ? '' : 'きょうざい ライブラリ')))))));
       } else if (step === 'load') p.append(h('div', { class: 'loading' }, '⏳ ', data.title, ' を よみこんで います…'));
       else if (step === 'err') p.append(data, h('div', { class: 'addrow' }, h('button', { type: 'button', class: 'big gray', onclick: () => draw(p, 'app') }, '◀ アプリを えらびなおす')));
       else if (step === 'item') {
